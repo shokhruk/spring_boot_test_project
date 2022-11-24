@@ -1,10 +1,10 @@
-package entity;
+package com.example.spring_boot_project.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employees {
+public class Employee {
 
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Employees {
     @Column(name = "salary")
     private int salary;
 
-    public Employees(int id, String name, String surname, String department, int salary) {
+    public Employee(int id, String name, String surname, String department, int salary) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -27,7 +27,7 @@ public class Employees {
         this.salary = salary;
     }
 
-    public Employees() {
+    public Employee() {
     }
 
     @Override

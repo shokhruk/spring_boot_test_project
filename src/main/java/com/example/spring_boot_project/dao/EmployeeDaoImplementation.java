@@ -1,23 +1,24 @@
-package dao;
+package com.example.spring_boot_project.dao;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+
+import com.example.spring_boot_project.entity.Employee;
+import org.hibernate.Session;;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import entity.Employees;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
 public class EmployeeDaoImplementation implements EmployeeDAO {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManager entityManager;
 
     @Override
-    public List<Employees> getAllEmployees() {
-        Session session = sessionFactory.getCurrentSession();
-        List<Employees> allEmployees = session.createQuery("from Employees", Employees.class)
+    public List<Employee> getAllEmployees() {
+        Session session = entityManager.unwrap(Session.class);
+        List<Employee> allEmployees = session.createQuery("from Employee", Employee.class)
                 .getResultList();
 
         return allEmployees;

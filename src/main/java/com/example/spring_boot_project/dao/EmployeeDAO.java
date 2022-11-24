@@ -1,10 +1,10 @@
-package dao;
+package com.example.spring_boot_project.dao;
 
-import entity.Employees;
+import com.example.spring_boot_project.entity.Employee;
 
 import java.util.List;
 public interface EmployeeDAO {
-    public List<Employees> getAllEmployees() ;
+    public List<Employee> getAllEmployees() ;
 
 //    public void setEmployee(Employees employee);
 //
